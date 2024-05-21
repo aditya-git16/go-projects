@@ -7,6 +7,16 @@ import("io"
 
 )
 
+// TorrentFile encodes the metadata from a .torrent file
+type TorrentFile struct {
+	Announce    string
+	InfoHash    [20]byte
+	PieceHashes [][20]byte
+	PieceLength int
+	Length      int
+	Name        string
+}
+
 type bencodeInfo struct {
 	Pieces string `bencode:"peices"`
 	PiecesLength int `bencode:"peices length"`
